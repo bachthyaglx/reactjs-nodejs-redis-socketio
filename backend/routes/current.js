@@ -1,11 +1,15 @@
 const express = require('express')
 const router = express.Router()
-const { latestData } = require('../data/cache')
+const { createClient } = require('redis')
 
-router.get('/current', (req, res) => {
-  const data = latestData.current
-  if (!data) return res.status(404).json({ error: 'No data yet' })
-  res.json(data)
+const redisClient = createClient({ url: 'redis://redis:6379' })
+redisClient.connect()
+
+router.get('/current', async (req, res) => {
+  const raw = await redisClient.get('latest:current')
+  if (!raw) return res.status(404).json({ error: 'No data yet' })
+
+  res.json(JSON.parse(raw))
 })
 
 module.exports = router

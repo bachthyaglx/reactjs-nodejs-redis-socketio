@@ -5,7 +5,9 @@
   "main": "server.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "node server.js"
+    "start": "node server.js",
+    "dev:server": "nodemon --legacy-watch server.js",
+    "dev:realtime-server": "nodemon --legacy-watch realtime-server.js"
   },
   "keywords": [],
   "author": "",
@@ -15,5 +17,8 @@
     "express": "^5.1.0",
     "redis": "^5.1.1",
     "socket.io": "^4.8.1"
+  },
+  "devDependencies": {
+    "nodemon": "^3.1.10"
   }
 }
