@@ -14,13 +14,12 @@ export default function Dashboard() {
     Object.fromEntries(sensors.map(({ type }) => [type, true]))
   )
 
-  const toggleChart = (type) => {
+  const toggleChart = (type: string) => {
     setVisible(prev => ({ ...prev, [type]: !prev[type] }))
   }
 
   return (
     <div>
-      {/* Toggle buttons */}
       <div style={{ marginBottom: '1rem', display: 'flex', gap: '10px', flexWrap: 'wrap' }}>
         {sensors.map(({ type, label }) => (
           <button
@@ -40,7 +39,6 @@ export default function Dashboard() {
         ))}
       </div>
 
-      {/* Charts (only render if visible) */}
       <div className="grid grid-cols-2 gap-4">
         {sensors.map(sensor =>
           visible[sensor.type] ? (

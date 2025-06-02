@@ -1,0 +1,32 @@
+{
+  "compilerOptions": {
+    /* === Output === */
+    "target": "ESNext",                        // Hỗ trợ JS hiện đại
+    "module": "ESNext",                        // Dùng cho Vite
+    "moduleResolution": "Node",
+    "lib": ["DOM", "DOM.Iterable", "ESNext"],  // Hỗ trợ browser API + async features
+    "jsx": "react-jsx",                        // JSX chuyển thành React 17+ style
+
+    /* === Strict type-checking === */
+    "strict": true,                            // Bật tất cả các kiểm tra nghiêm ngặt
+    "noImplicitAny": true,
+    "strictNullChecks": true,
+    "strictFunctionTypes": true,
+    "strictBindCallApply": true,
+    "noImplicitThis": true,
+    "alwaysStrict": true,
+
+    /* === Module features === */
+    "esModuleInterop": true,
+    "allowSyntheticDefaultImports": true,
+    "forceConsistentCasingInFileNames": true,
+    "resolveJsonModule": true,
+    "isolatedModules": true,
+    "skipLibCheck": true,
+
+    /* === Build behavior === */
+    "noEmit": true                             // Không xuất file .js (Vite làm việc này)
+  },
+  "include": ["src"],
+  "exclude": ["node_modules", "dist"]
+}
