@@ -14,23 +14,9 @@ services:
       - ./backend:/app
     depends_on:
       - redis
-    command: npm run dev:server
+    command: npm run dev
     environment:
       - NODE_ENV=development
-    networks:
-      - app_net
-
-  realtime:
-    build:
-      context: ./backend
-      dockerfile: Dockerfile.realtime.dev
-    container_name: realtime
-    volumes:
-      - ./backend:/app
-    depends_on:
-      - redis
-    command: npm run dev:realtime-server
-    environment:
       - REDIS_HOST=redis
     networks:
       - app_net
@@ -44,7 +30,6 @@ services:
       - ./frontend:/app
     depends_on:
       - backend
-      - realtime
     environment:
       - CHOKIDAR_USEPOLLING=true
     networks:
@@ -60,17 +45,6 @@ services:
     depends_on:
       - frontend
       - backend
-      - realtime
-    networks:
-      - app_net
-  
-  publisher:
-    build:
-      context: ./backend
-      dockerfile: Dockerfile.publisher
-    container_name: publisher
-    depends_on:
-      - redis
     networks:
       - app_net
 

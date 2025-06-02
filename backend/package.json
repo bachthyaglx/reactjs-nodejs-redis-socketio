@@ -6,8 +6,7 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "node server.js",
-    "dev:server": "nodemon --legacy-watch server.js",
-    "dev:realtime-server": "nodemon --legacy-watch realtime-server.js"
+    "dev": "concurrently \"nodemon --legacy-watch server.js\" \"nodemon --legacy-watch realtime-server.js\" \"node sensor-simulator/publisher.js\""
   },
   "keywords": [],
   "author": "",
@@ -19,6 +18,7 @@
     "socket.io": "^4.8.1"
   },
   "devDependencies": {
+    "concurrently": "^9.1.2",
     "nodemon": "^3.1.10"
   }
 }
