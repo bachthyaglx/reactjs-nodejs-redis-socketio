@@ -1,0 +1,41 @@
+version: '3.9'
+
+services:
+  redis:
+    image: redis:7
+    container_name: redis
+
+  backend:
+    build:
+      context: ./backend
+      dockerfile: Dockerfile
+    container_name: backend
+    volumes:
+      - ./backend:/app
+    depends_on:
+      - redis
+
+  realtime:
+    build:
+      context: ./backend
+      dockerfile: Dockerfile.realtime
+    container_name: realtime
+    depends_on:
+      - redis
+    environment:
+      - REDIS_HOST=redis
+
+  frontend:
+    build:
+      context: .
+      dockerfile: frontend/Dockerfile
+    container_name: frontend
+    depends_on:
+      - backend
+      - realtime
+    ports:
+      - "80:80"
+
+networks:
+  default:
+    driver: bridge

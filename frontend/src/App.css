@@ -1,0 +1,34 @@
+body {
+  font-family: sans-serif;
+  margin: 0 auto;
+  padding: 2rem;
+  background: #f9f9f9;
+  max-width: 1200px;
+}
+h1 {
+  text-align: center;
+  margin-bottom: 2rem;
+}
+.grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 2rem;
+}
+.chart-box {
+  background: white;
+  padding: 1rem;
+  border-radius: 12px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+.label {
+  font-size: 1.1rem;
+  margin-bottom: 0.5rem;
+}
+.value {
+  font-weight: bold;
+  color: #008080;
+}
+canvas {
+  width: 100% !important;
+  height: 200px !important;
+}
