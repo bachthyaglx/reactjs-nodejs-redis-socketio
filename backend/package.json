@@ -6,7 +6,7 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "node server.js",
-    "dev": "concurrently \"nodemon --legacy-watch server.js\" \"nodemon --legacy-watch realtime-server.js\" \"node sensor-simulator/publisher.js\""
+    "dev": "concurrently \"nodemon --legacy-watch server.js\" \"nodemon --legacy-watch realtime-server.js\" \"node socket/socketPublisher.js\""
   },
   "keywords": [],
   "author": "",

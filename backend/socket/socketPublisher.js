@@ -1,7 +1,7 @@
-// publisher.js
+// ./socket/socketPublisher.js
 const { createClient } = require('redis')
-const { generateValue } = require('./generator')
-const sensorTypes = require('./types')
+const { generateValue } = require('../sensor-simulator/generator')
+const sensorTypes = require('../sensor-simulator/types')
 
 const pub = createClient({ url: 'redis://redis:6379' })
 
